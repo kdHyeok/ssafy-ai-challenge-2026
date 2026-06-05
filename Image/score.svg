@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="720" viewBox="0 0 1500 720">
+  <rect width="1500" height="720" fill="#ffffff"/>
+  <defs>
+    <style>
+      .title{font:700 38px Arial,sans-serif;fill:#111827}.axis{stroke:#334155;stroke-width:3}.grid{stroke:#e5e7eb;stroke-width:1}.label{font:18px Arial,sans-serif;fill:#475569}.bartext{font:700 21px Arial,sans-serif;fill:#111827}.small{font:16px Arial,sans-serif;fill:#374151}.note{font:15px Arial,sans-serif;fill:#64748b}
+    </style>
+  </defs>
+  <text x="60" y="58" class="title">Representative Score Ranges</text>
+  <text x="60" y="88" class="note">단일 ablation 그래프가 아니라, 공개 가능한 제출 기록과 대표 실험 계열을 요약한 차트입니다.</text>
+
+  <g class="grid"><line x1="110" y1="560" x2="1410" y2="560"/><line x1="110" y1="465" x2="1410" y2="465"/><line x1="110" y1="370" x2="1410" y2="370"/><line x1="110" y1="275" x2="1410" y2="275"/><line x1="110" y1="180" x2="1410" y2="180"/></g>
+  <g class="axis"><line x1="110" y1="600" x2="1410" y2="600"/><line x1="110" y1="155" x2="110" y2="600"/></g>
+  <g class="label"><text x="43" y="565">0.70</text><text x="43" y="470">0.80</text><text x="43" y="375">0.85</text><text x="43" y="280">0.90</text><text x="43" y="185">0.95</text></g>
+
+  <g text-anchor="middle">
+    <rect x="155" y="597" width="145" height="3" rx="6" fill="#94a3b8"/><text x="227" y="578" class="bartext">0.70279</text><text x="227" y="636" class="small">Qwen2.5 3B</text><text x="227" y="660" class="small">baseline</text>
+    <rect x="365" y="214" width="145" height="386" rx="8" fill="#60a5fa"/><text x="437" y="192" class="bartext">0.85~0.916</text><text x="437" y="636" class="small">후보 모델</text><text x="437" y="660" class="small">MiniCPM/Gemma/8B</text>
+    <rect x="575" y="163" width="145" height="437" rx="8" fill="#fbbf24"/><text x="647" y="142" class="bartext">0.9333</text><text x="647" y="636" class="small">Qwen3-VL-32B</text><text x="647" y="660" class="small">학습 계열</text>
+    <rect x="785" y="186" width="145" height="414" rx="8" fill="#fb923c"/><text x="857" y="164" class="bartext">0.926~0.931</text><text x="857" y="636" class="small">Detection/TTA</text><text x="857" y="660" class="small">후반 실험</text>
+    <rect x="995" y="153" width="145" height="447" rx="8" fill="#38bdf8"/><text x="1067" y="132" class="bartext">0.941~0.943</text><text x="1067" y="636" class="small">Soft ensemble</text><text x="1067" y="660" class="small">후보군</text>
+    <rect x="1205" y="150" width="145" height="450" rx="8" fill="#2563eb"/><text x="1277" y="128" class="bartext">0.94402</text><text x="1277" y="636" class="small">Selective</text><text x="1277" y="660" class="small">Thinking</text>
+  </g>
+  <text x="60" y="700" class="note">후보 모델은 MiniCPM 0.85~0.86대, google/gemma-4-E4B-it 0.90815, Qwen3-VL-8B 0.91643 흐름입니다. 0.9333은 32B 학습 계열 기록값입니다.</text>
+</svg>

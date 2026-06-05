@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets / local config
+.env
+*.key
+*.pem
+
+# Model artifacts
+/checkpoints/
+/weights/
+/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Raw competition data at repository root
+/raw/
+/train/
+/test/
+/dev/
+
+# Logs and caches
+/logs/
+/cache/
+*.log
+
+# Local backups generated during documentation edits
+backup
