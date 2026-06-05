@@ -24,7 +24,7 @@
   <path d="M 947 255 C 947 310, 760 315, 760 370" fill="none" class="arrow"/>
   <path d="M 947 255 C 947 310, 1115 315, 1115 370" fill="none" class="arrow"/>
   <g text-anchor="middle">
-    <rect x="620" y="370" width="280" height="110" rx="16" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/><text x="760" y="410" class="text">Soft Ensemble 비교</text><text x="760" y="438" class="small">32B + 27B 계열</text><text x="760" y="462" class="small">0.941~0.943, 최고점 미초과</text>
+    <rect x="620" y="370" width="280" height="110" rx="16" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/><text x="760" y="410" class="text">Soft Ensemble 비교</text><text x="760" y="438" class="small">32B + Qwen3.5-27B</text><text x="760" y="462" class="small">0.94363, 최고점 미초과</text>
     <rect x="975" y="370" width="280" height="110" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="3"/><text x="1115" y="410" class="text">Detection / TTA</text><text x="1115" y="438" class="small">공개 detector crop 후보</text><text x="1115" y="462" class="small">0.926~0.931, 후반 회고</text>
   </g>
 

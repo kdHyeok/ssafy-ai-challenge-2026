@@ -2,23 +2,65 @@
   <rect width="1500" height="720" fill="#ffffff"/>
   <defs>
     <style>
-      .title{font:700 38px Arial,sans-serif;fill:#111827}.axis{stroke:#334155;stroke-width:3}.grid{stroke:#e5e7eb;stroke-width:1}.label{font:18px Arial,sans-serif;fill:#475569}.bartext{font:700 21px Arial,sans-serif;fill:#111827}.small{font:16px Arial,sans-serif;fill:#374151}.note{font:15px Arial,sans-serif;fill:#64748b}
+      .title{font:700 38px Arial,sans-serif;fill:#111827}
+      .axis{stroke:#9ca3af;stroke-width:2}
+      .grid{stroke:#e5e7eb;stroke-width:1}
+      .label{font:600 22px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .small{font:18px Arial,sans-serif;fill:#374151;text-anchor:middle}
+      .bartext{font:700 22px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .note{font:18px Arial,sans-serif;fill:#4b5563}
     </style>
   </defs>
-  <text x="60" y="58" class="title">Representative Score Ranges</text>
-  <text x="60" y="88" class="note">단일 ablation 그래프가 아니라, 공개 가능한 제출 기록과 대표 실험 계열을 요약한 차트입니다.</text>
+  <text x="60" y="60" class="title">SSAFY AI Challenge VQA Score Progression</text>
+  <line x1="120" y1="600" x2="1380" y2="600" class="axis"/>
+  <line x1="120" y1="120" x2="120" y2="600" class="axis"/>
+  <line x1="120" y1="500" x2="1380" y2="500" class="grid"/><text x="82" y="507" class="note">0.75</text>
+  <line x1="120" y1="400" x2="1380" y2="400" class="grid"/><text x="82" y="407" class="note">0.80</text>
+  <line x1="120" y1="300" x2="1380" y2="300" class="grid"/><text x="82" y="307" class="note">0.85</text>
+  <line x1="120" y1="200" x2="1380" y2="200" class="grid"/><text x="82" y="207" class="note">0.90</text>
+  <line x1="120" y1="112" x2="1380" y2="112" class="grid"/><text x="82" y="119" class="note">0.944</text>
 
-  <g class="grid"><line x1="110" y1="560" x2="1410" y2="560"/><line x1="110" y1="465" x2="1410" y2="465"/><line x1="110" y1="370" x2="1410" y2="370"/><line x1="110" y1="275" x2="1410" y2="275"/><line x1="110" y1="180" x2="1410" y2="180"/></g>
-  <g class="axis"><line x1="110" y1="600" x2="1410" y2="600"/><line x1="110" y1="155" x2="110" y2="600"/></g>
-  <g class="label"><text x="43" y="565">0.70</text><text x="43" y="470">0.80</text><text x="43" y="375">0.85</text><text x="43" y="280">0.90</text><text x="43" y="185">0.95</text></g>
-
-  <g text-anchor="middle">
-    <rect x="155" y="597" width="145" height="3" rx="6" fill="#94a3b8"/><text x="227" y="578" class="bartext">0.70279</text><text x="227" y="636" class="small">Qwen2.5 3B</text><text x="227" y="660" class="small">baseline</text>
-    <rect x="365" y="214" width="145" height="386" rx="8" fill="#60a5fa"/><text x="437" y="192" class="bartext">0.85~0.916</text><text x="437" y="636" class="small">후보 모델</text><text x="437" y="660" class="small">MiniCPM/Gemma/8B</text>
-    <rect x="575" y="163" width="145" height="437" rx="8" fill="#fbbf24"/><text x="647" y="142" class="bartext">0.9333</text><text x="647" y="636" class="small">Qwen3-VL-32B</text><text x="647" y="660" class="small">학습 계열</text>
-    <rect x="785" y="186" width="145" height="414" rx="8" fill="#fb923c"/><text x="857" y="164" class="bartext">0.926~0.931</text><text x="857" y="636" class="small">Detection/TTA</text><text x="857" y="660" class="small">후반 실험</text>
-    <rect x="995" y="153" width="145" height="447" rx="8" fill="#38bdf8"/><text x="1067" y="132" class="bartext">0.941~0.943</text><text x="1067" y="636" class="small">Soft ensemble</text><text x="1067" y="660" class="small">후보군</text>
-    <rect x="1205" y="150" width="145" height="450" rx="8" fill="#2563eb"/><text x="1277" y="128" class="bartext">0.94402</text><text x="1277" y="636" class="small">Selective</text><text x="1277" y="660" class="small">Thinking</text>
+  <g>
+    <rect x="190" y="594" width="120" height="6" rx="4" fill="#9ca3af"/>
+    <text x="250" y="570" class="bartext">0.70279</text>
+    <text x="250" y="636" class="small">Baseline</text>
+    <text x="250" y="660" class="small">Qwen2.5 3B</text>
   </g>
-  <text x="60" y="700" class="note">후보 모델은 MiniCPM 0.85~0.86대, google/gemma-4-E4B-it 0.90815, Qwen3-VL-8B 0.91643 흐름입니다. 0.9333은 32B 학습 계열 기록값입니다.</text>
+  <g>
+    <rect x="360" y="433" width="120" height="167" rx="4" fill="#60a5fa"/>
+    <text x="420" y="410" class="bartext">0.78341</text>
+    <text x="420" y="636" class="small">MiniCPM</text>
+    <text x="420" y="660" class="small">V-4_5</text>
+  </g>
+  <g>
+    <rect x="530" y="344" width="120" height="256" rx="4" fill="#a78bfa"/>
+    <text x="590" y="322" class="bartext">0.82815</text>
+    <text x="590" y="636" class="small">Gemma 4</text>
+    <text x="590" y="660" class="small">E4B-it</text>
+  </g>
+  <g>
+    <rect x="700" y="328" width="120" height="272" rx="4" fill="#34d399"/>
+    <text x="760" y="306" class="bartext">0.83643</text>
+    <text x="760" y="636" class="small">Qwen3-VL</text>
+    <text x="760" y="660" class="small">8B</text>
+  </g>
+  <g>
+    <rect x="870" y="135" width="120" height="465" rx="4" fill="#f59e0b"/>
+    <text x="930" y="112" class="bartext">0.9333</text>
+    <text x="930" y="636" class="small">Qwen3-VL</text>
+    <text x="930" y="660" class="small">32B train</text>
+  </g>
+  <g>
+    <rect x="1040" y="115" width="120" height="485" rx="4" fill="#fb7185"/>
+    <text x="1100" y="92" class="bartext">0.94363</text>
+    <text x="1100" y="636" class="small">Soft</text>
+    <text x="1100" y="660" class="small">ensemble</text>
+  </g>
+  <g>
+    <rect x="1210" y="112" width="120" height="488" rx="4" fill="#ef4444"/>
+    <text x="1270" y="89" class="bartext">0.94402</text>
+    <text x="1270" y="636" class="small">Best</text>
+    <text x="1270" y="660" class="small">Private 12th</text>
+  </g>
+  <text x="60" y="700" class="note">모델 변경 실험은 MiniCPM-V-4_5 0.78341, Gemma 4 E4B-it 0.82815, Qwen3-VL-8B 0.83643으로 기록했습니다.</text>
 </svg>
