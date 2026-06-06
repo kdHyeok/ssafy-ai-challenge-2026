@@ -56,12 +56,14 @@ ssafy-ai-challenge-2026-vqa/
 ├── data/
 │   ├── README.md
 │   ├── train.csv / dev.csv / test.csv
-│   ├── sample_submission_format.csv
+│   ├── example_submission.csv
 │   ├── train/
 │   ├── dev/
 │   └── test/
 ├── docs/
 │   ├── README.md
+│   ├── Overview.md
+│   ├── Dataset Description.md
 │   ├── detection-tta-0.94402.md
 │   ├── model-change-experiment.md
 │   └── selective-thinking-failed-experiment.md
@@ -175,6 +177,8 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 ## 문서 안내
 
 - [노트북 설명](notebooks/README.md)
+- [대회 개요](docs/Overview.md)
+- [Dataset Description](docs/Dataset%20Description.md)
 - [모델 변경 실험 기록](docs/model-change-experiment.md)
 - [detection/TTA 최종 제출 기록](docs/detection-tta-0.94402.md)
 - [selective Thinking 실패 실험 기록](docs/selective-thinking-failed-experiment.md)

@@ -1,9 +1,13 @@
 # Docs
 
-이 디렉토리는 실험 기록과 실패 기록을 자세히 적는 공간입니다.
+이 디렉토리는 프로젝트 개요, 데이터 설명, 실험 기록, 실패 기록을 정리하는 공간입니다.
 
 ## 문서 목록
 
+- [Overview.md](Overview.md)
+  - 대회 개요, 미션, 일정, 평가 방식, 예시 이미지 정리
+- [Dataset Description.md](Dataset%20Description.md)
+  - 데이터 구성, CSV 컬럼, 제출 형식, 사용 규칙 정리
 - [detection-tta-0.94402.md](detection-tta-0.94402.md)
   - detection crop, TTA, 듀얼 VQA 결합을 최고점 연결 코드 기준으로 다시 정리한 기록
   - 파일명 0.93102와 실제 연결 점수 0.94402를 분리해 설명
