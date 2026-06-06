@@ -35,3 +35,4 @@ venv/
 
 # Local backups generated during documentation edits
 backup
+*.bak-*

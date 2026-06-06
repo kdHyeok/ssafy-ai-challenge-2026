@@ -7,25 +7,25 @@
     </style>
   </defs>
   <text x="60" y="58" class="title">VQA Experiment Flow</text>
-  <text x="60" y="88" class="note">최고점 연결 흐름과 후반 비교/실패 실험을 분리해 정리</text>
+  <text x="60" y="88" class="note">이번 정리에서는 detection/TTA를 최고점 연결 코드로, score_0.94402는 실패 실험으로 분리</text>
 
   <g text-anchor="middle">
-    <rect x="55" y="145" width="185" height="105" rx="16" fill="#dbeafe" class="box"/><text x="147" y="185" class="text">3B Baseline</text><text x="147" y="214" class="small">0.70279</text>
-    <line x1="250" y1="198" x2="300" y2="198" class="arrow"/>
-    <rect x="310" y="145" width="205" height="105" rx="16" fill="#e0f2fe" class="box"/><text x="412" y="178" class="text">후보군 비교</text><text x="412" y="205" class="small">MiniCPM / Gemma</text><text x="412" y="228" class="small">Qwen3-VL-8B</text>
-    <line x1="525" y1="198" x2="575" y2="198" class="arrow"/>
-    <rect x="585" y="145" width="190" height="105" rx="16" fill="#dcfce7" class="box"/><text x="680" y="185" class="text">EDA / 데이터 진단</text><text x="680" y="214" class="small">dev agreement, 유형 분석</text>
-    <line x1="785" y1="198" x2="835" y2="198" class="arrow"/>
-    <rect x="845" y="145" width="205" height="105" rx="16" fill="#fef3c7" class="box"/><text x="947" y="178" class="text">Qwen3-VL-32B</text><text x="947" y="205" class="small">LoRA / 4bit</text><text x="947" y="228" class="small">prob_a~d 저장</text>
-    <line x1="1060" y1="198" x2="1110" y2="198" class="arrow"/>
-    <rect x="1120" y="145" width="225" height="105" rx="16" fill="#ede9fe" class="box"/><text x="1232" y="180" class="text">선택적 Thinking</text><text x="1232" y="208" class="small">저합의 샘플 재추론</text><text x="1232" y="231" class="small">0.94402</text>
+    <rect x="45" y="145" width="185" height="105" rx="16" fill="#dbeafe" class="box"/><text x="137" y="185" class="text">3B Baseline</text><text x="137" y="214" class="small">0.70279</text>
+    <line x1="240" y1="198" x2="290" y2="198" class="arrow"/>
+    <rect x="300" y="145" width="205" height="105" rx="16" fill="#e0f2fe" class="box"/><text x="402" y="178" class="text">모델 변경</text><text x="402" y="205" class="small">MiniCPM / Gemma</text><text x="402" y="228" class="small">Qwen3-VL-8B</text>
+    <line x1="515" y1="198" x2="565" y2="198" class="arrow"/>
+    <rect x="575" y="145" width="190" height="105" rx="16" fill="#dcfce7" class="box"/><text x="670" y="185" class="text">EDA / 데이터 진단</text><text x="670" y="214" class="small">dev agreement, 유형 분석</text>
+    <line x1="775" y1="198" x2="825" y2="198" class="arrow"/>
+    <rect x="835" y="145" width="205" height="105" rx="16" fill="#fef3c7" class="box"/><text x="937" y="178" class="text">Qwen3-VL-32B</text><text x="937" y="205" class="small">LoRA / 4bit</text><text x="937" y="228" class="small">실제 0.93141</text>
+    <line x1="1050" y1="198" x2="1100" y2="198" class="arrow"/>
+    <rect x="1110" y="145" width="235" height="105" rx="16" fill="#fee2e2" class="box"/><text x="1227" y="178" class="text">Detection / TTA</text><text x="1227" y="205" class="small">crop + TTA + 듀얼 VQA</text><text x="1227" y="228" class="small">최고점 0.94402</text>
   </g>
 
-  <path d="M 947 255 C 947 310, 760 315, 760 370" fill="none" class="arrow"/>
-  <path d="M 947 255 C 947 310, 1115 315, 1115 370" fill="none" class="arrow"/>
+  <path d="M 937 255 C 937 310, 745 315, 745 370" fill="none" class="arrow"/>
+  <path d="M 937 255 C 937 310, 1095 315, 1095 370" fill="none" class="arrow"/>
   <g text-anchor="middle">
-    <rect x="620" y="370" width="280" height="110" rx="16" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/><text x="760" y="410" class="text">Soft Ensemble 비교</text><text x="760" y="438" class="small">32B + Qwen3.5-27B</text><text x="760" y="462" class="small">0.94363, 최고점 미초과</text>
-    <rect x="975" y="370" width="280" height="110" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="3"/><text x="1115" y="410" class="text">Detection / TTA</text><text x="1115" y="438" class="small">공개 detector crop 후보</text><text x="1115" y="462" class="small">0.926~0.931, 후반 회고</text>
+    <rect x="605" y="370" width="280" height="110" rx="16" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/><text x="745" y="410" class="text">Soft Ensemble 비교</text><text x="745" y="438" class="small">32B + Qwen3.5-27B</text><text x="745" y="462" class="small">0.94363, 최고점 미초과</text>
+    <rect x="955" y="370" width="280" height="110" rx="16" fill="#e2e8f0" stroke="#64748b" stroke-width="3"/><text x="1095" y="410" class="text">score_0.94402</text><text x="1095" y="438" class="small">선택적 Thinking 아이디어</text><text x="1095" y="462" class="small">실패 기록으로 분리</text>
   </g>
 
   <text x="60" y="555" class="note">Falcon-Perception은 최종 제출 파이프라인이 아니라 일부 샘플 사후 확인과 후속 개선 아이디어로 분리했습니다.</text>
