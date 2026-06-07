@@ -68,5 +68,5 @@
     <text x="1275" y="636" class="small">score_0.94402</text>
     <text x="1275" y="660" class="small">Thinking note</text>
   </g>
-  <text x="60" y="700" class="note">파일명 점수와 실제 제출 점수가 다른 노트북이 있어 train_0.9333 → 0.93141, detection_tta_0.93102 → 0.94402로 다시 적었습니다.</text>
+  <text x="60" y="700" class="note">train_0.9333.ipynb는 실제 제출 점수 0.93141로 정리했고, 최종 제출 파이프라인은 detection_tta_0.94402.ipynb로 표기했습니다.</text>
 </svg>

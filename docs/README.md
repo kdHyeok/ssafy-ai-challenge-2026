@@ -8,9 +8,11 @@
   - 대회 개요, 미션, 일정, 평가 방식, 예시 이미지 정리
 - [Dataset Description.md](Dataset%20Description.md)
   - 데이터 구성, CSV 컬럼, 제출 형식, 사용 규칙 정리
+- [detection-retrospective.md](detection-retrospective.md)
+  - 객체 인식을 따로 보게 된 배경, 제안, 한계, 다음 방향 정리
 - [detection-tta-0.94402.md](detection-tta-0.94402.md)
   - detection crop, TTA, 듀얼 VQA 결합을 최고점 연결 코드 기준으로 다시 정리한 기록
-  - 파일명 0.93102와 실제 연결 점수 0.94402를 분리해 설명
+  - 최종 제출 노트북 흐름과 결합 방식을 정리한 기술 문서
 - [model-change-experiment.md](model-change-experiment.md)
   - baseline에서 MiniCPM, Gemma, Qwen3-VL-8B까지 비교한 기록
   - 학습 파라미터 조정 근거 포함

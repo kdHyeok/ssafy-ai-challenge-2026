@@ -2,7 +2,7 @@
 
 ![Banner](Image/banner.png)
 
-재활용품 이미지와 객관식 질문을 입력으로 받아 정답 선택지를 예측하는 VQA 대회 프로젝트입니다. Baseline 코드에서 시작해 모델 교체, 학습 파라미터 조정, Qwen3-VL-32B LoRA 학습, soft ensemble, detection/TTA를 실험했습니다. 제출 기록을 다시 대조한 결과 `notebooks/experimental/detection_tta_0.93102.ipynb`를 0.94402 연결 코드로 정리했고, selective Thinking 실험은 실패 기록 문서만 남겼습니다.
+재활용품 이미지와 객관식 질문을 입력으로 받아 정답 선택지를 예측하는 VQA 대회 프로젝트입니다. Baseline 코드에서 시작해 모델 교체, 학습 파라미터 조정, Qwen3-VL-32B LoRA 학습, soft ensemble, detection/TTA를 실험했습니다. 최종 제출 파이프라인은 `notebooks/detection_tta_0.94402.ipynb`로 정리했고, selective Thinking 실험은 실패 기록 문서만 남겼습니다.
 
 ## 주요 성과
 
@@ -34,7 +34,7 @@
 4. 수업 메모와 직접 비교 실험을 바탕으로 learning rate, scheduler, optimizer, label smoothing, LoRA rank/alpha, batch size를 조정했습니다.
 5. `Qwen/Qwen3-VL-32B-Instruct` 학습으로 확장했고, `train_0.9333.ipynb`는 실제 제출 기준 0.93141로 정리했습니다.
 6. Qwen3-VL-32B와 Qwen3.5-27B를 섞는 soft ensemble을 시험해 0.94363까지 올렸습니다.
-7. 후반에는 Grounding DINO, Florence-2, crop, TTA, 듀얼 VQA 결합을 붙인 detection/TTA 파이프라인을 정리했고, 제출 기록 재대조 결과 이 노트북을 0.94402 연결 코드로 봤습니다.
+7. 후반에는 Grounding DINO, Florence-2, crop, TTA, 듀얼 VQA 결합을 붙인 detection/TTA 파이프라인을 정리했고, 이를 최종 제출 흐름으로 사용했습니다.
 8. selective Thinking 후처리 아이디어 실험은 실패 기록으로만 남기고, 노트북 대신 문서로 정리했습니다.
 
 자세한 기록은 아래 문서를 참고하면 됩니다.
@@ -64,18 +64,19 @@ ssafy-ai-challenge-2026-vqa/
 │   ├── README.md
 │   ├── Overview.md
 │   ├── Dataset Description.md
+│   ├── detection-retrospective.md
 │   ├── detection-tta-0.94402.md
 │   ├── model-change-experiment.md
 │   └── selective-thinking-failed-experiment.md
 └── notebooks/
     ├── README.md
     ├── Baseline_0.70279.ipynb
+    ├── detection_tta_0.94402.ipynb
     ├── train_0.9333.ipynb
     ├── ensemble_0.94363.ipynb
     └── experimental/
         ├── README.md
-        ├── EDA.ipynb
-        └── detection_tta_0.93102.ipynb
+        └── EDA.ipynb
 ```
 
 ## 실험 순서
@@ -112,7 +113,7 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 
 ### 7. Detection / TTA 최종 제출
 
-`experimental/detection_tta_0.93102.ipynb`는 Grounding DINO와 Florence-2로 관심 객체 crop을 만들고, 원본 이미지와 crop 이미지를 같이 넣어 VQA 추론한 뒤 TTA와 듀얼 모델 확률을 결합하는 실험입니다. 파일명은 0.93102지만, 제출 기록을 다시 대조한 결과 이 노트북을 0.94402 연결 코드로 정리했습니다. 자세한 기록은 `docs/detection-tta-0.94402.md`에 따로 적었습니다.
+`detection_tta_0.94402.ipynb`는 Grounding DINO와 Florence-2로 관심 객체 crop을 만들고, 원본 이미지와 crop 이미지를 같이 넣어 VQA 추론한 뒤 TTA와 듀얼 모델 확률을 결합한 최종 제출 파이프라인입니다. 자세한 기록은 `docs/detection-tta-0.94402.md`와 `docs/detection-retrospective.md`에 따로 적었습니다.
 
 ### 8. selective Thinking 실패 실험
 
@@ -124,7 +125,7 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 
 | 구분 | 결과 요약 | 설명 |
 |---|---:|---|
-| 최고 제출 | 0.94402 | 제출 기록 재대조 결과 `detection_tta_0.93102.ipynb` 연결 코드 |
+| 최고 제출 | 0.94402 | `detection_tta_0.94402.ipynb` 최종 제출 파이프라인 |
 | 리더보드 | Private 12위 / 0.94402 | `Image/private_12th.png`에 보관된 결과 캡처 |
 | Baseline | 0.70279 | Qwen2.5-VL-3B-Instruct 4bit LoRA baseline |
 | 모델 변경 | 0.78341 → 0.82815 → 0.83643 | MiniCPM-V-4_5, Gemma 4 E4B, Qwen3-VL-8B 비교 |
@@ -152,8 +153,8 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 | EDA 및 데이터 분석 | dev 응답 불일치, 질문 유형, count/material 문제를 분석하고 후속 실험 우선순위를 정리 | `notebooks/experimental/EDA.ipynb` |
 | 모델 변경 실험 | baseline 코드에서 모델 카드에 맞춰 MiniCPM-V-4_5, Gemma 4 E4B, Qwen3-VL-8B를 실행하고 비교 | `docs/model-change-experiment.md` |
 | 학습 파라미터 조정 | 수업 메모와 직접 비교 실험을 바탕으로 learning rate, scheduler, label smoothing, optimizer, LoRA 설정을 조정 | `docs/model-change-experiment.md`, `notebooks/train_0.9333.ipynb` |
-| detection/TTA 정리 | detection crop, TTA, 듀얼 VQA 결합 실험을 최고점 연결 코드 기준으로 다시 정리 | `docs/detection-tta-0.94402.md`, `notebooks/experimental/detection_tta_0.93102.ipynb` |
-| 기록 재정리 | 파일명 점수와 실제 점수가 어긋난 노트북을 다시 대조하고, 공개 README와 하위 문서 구조를 정리 | `README.md`, `docs/`, `notebooks/README.md` |
+| detection/TTA 정리 | detection crop, TTA, 듀얼 VQA 결합 실험과 객체 인식 회고를 함께 정리 | `docs/detection-tta-0.94402.md`, `docs/detection-retrospective.md`, `notebooks/detection_tta_0.94402.ipynb` |
+| 문서 구조 정리 | 노트북 역할과 세부 설명이 맞도록 README와 하위 문서 구조를 정리 | `README.md`, `docs/`, `notebooks/README.md` |
 | 실패 실험 정리 | selective Thinking 실패 실험을 노트북 대신 문서로 남김 | `docs/selective-thinking-failed-experiment.md`, `notebooks/experimental/README.md` |
 
 ## 트러블슈팅과 배운 점
@@ -168,11 +169,11 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 
 ### 실패 실험도 분리해서 남겨야 함
 
-제거한 selective Thinking 실험은 파일명만 보면 최고점 대표본처럼 보일 수 있었지만, 로그 파싱과 결과 정리가 불안정했습니다. 반대로 `detection_tta_0.93102.ipynb`는 파일명은 낮지만 실제 연결 점수는 0.94402로 다시 확인됐습니다.
+제거한 selective Thinking 실험은 파일명만 보면 대표본처럼 보일 수 있었지만, 로그 파싱과 결과 정리가 불안정했습니다. 그래서 최종 제출 흐름과 실패 실험 기록을 분리해 정리했습니다.
 
 ### detection/TTA는 후반 보정이 아니라 최종 제출 흐름으로 다시 봐야 함
 
-이전 문서에서는 detection/TTA를 실패 확장 실험처럼 적은 부분이 있었지만, 제출 기록을 다시 대조한 결과 최고점 연결 코드로 보는 쪽이 맞았습니다.
+detection/TTA는 후반 보조 실험이 아니라, 실제 최종 제출 흐름으로 정리하는 편이 전체 실험 순서와 맞았습니다.
 
 ## 문서 안내
 
@@ -180,6 +181,7 @@ Baseline 코드의 구조를 유지한 채 Hugging Face 모델 카드에 맞춰 
 - [대회 개요](docs/Overview.md)
 - [Dataset Description](docs/Dataset%20Description.md)
 - [모델 변경 실험 기록](docs/model-change-experiment.md)
+- [객체 인식 회고](docs/detection-retrospective.md)
 - [detection/TTA 최종 제출 기록](docs/detection-tta-0.94402.md)
 - [selective Thinking 실패 실험 기록](docs/selective-thinking-failed-experiment.md)
 - [데이터 샘플 구조](data/README.md)

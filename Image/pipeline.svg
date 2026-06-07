@@ -7,7 +7,7 @@
     </style>
   </defs>
   <text x="60" y="58" class="title">VQA Experiment Flow</text>
-  <text x="60" y="88" class="note">이번 정리에서는 detection/TTA를 최고점 연결 코드로, score_0.94402는 실패 실험으로 분리</text>
+  <text x="60" y="88" class="note">detection/TTA는 최종 제출 흐름으로, selective Thinking은 실패 실험 기록으로 분리</text>
 
   <g text-anchor="middle">
     <rect x="45" y="145" width="185" height="105" rx="16" fill="#dbeafe" class="box"/><text x="137" y="185" class="text">3B Baseline</text><text x="137" y="214" class="small">0.70279</text>
