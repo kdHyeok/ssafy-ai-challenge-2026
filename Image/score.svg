@@ -68,5 +68,5 @@
     <text x="1275" y="636" class="small">score_0.94402</text>
     <text x="1275" y="660" class="small">Thinking note</text>
   </g>
-  <text x="60" y="700" class="note">train_0.9333.ipynb는 실제 제출 점수 0.93141로 정리했고, 최종 제출 파이프라인은 detection_tta_0.94402.ipynb로 표기했습니다.</text>
+  <text x="60" y="700" class="note">train_0.9333.ipynb의 실제 제출 점수는 0.93141이며, 최종 제출 파이프라인은 final_score_0.94402.ipynb입니다.</text>
 </svg>

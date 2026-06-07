@@ -1,10 +1,10 @@
-# `detection_tta_0.94402.ipynb` 최종 제출 기록
+# `final_score_0.94402.ipynb` 최종 제출 기록
 
-이 문서는 `../notebooks/detection_tta_0.94402.ipynb`를 따로 설명합니다. detection crop, TTA, 듀얼 VQA 결합을 사용한 최종 제출 파이프라인을 기록합니다.
+이 문서는 `../notebooks/final_score_0.94402.ipynb`를 따로 설명합니다. detection crop, TTA, 듀얼 VQA 결합을 사용한 최종 제출 파이프라인을 기록합니다.
 
 ## 한 줄 요약
 
-- 관련 노트북: `detection_tta_0.94402.ipynb`
+- 관련 노트북: `final_score_0.94402.ipynb`
 - 역할: 0.94402 최종 제출 파이프라인
 - 핵심 아이디어: detection crop + 원본 이미지 + TTA + 듀얼 VQA 확률 결합
 
@@ -12,7 +12,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 관련 노트북 | `../notebooks/detection_tta_0.94402.ipynb` |
+| 관련 노트북 | `../notebooks/final_score_0.94402.ipynb` |
 | detector | Grounding DINO, Florence-2 |
 | VQA 축 | Qwen3-VL-32B LoRA, Qwen3.5-27B |
 | 입력 방식 | 원본 이미지 + 관심 객체 crop 이미지 |
@@ -31,7 +31,7 @@
 
 ### 1. 최종 제출에 사용한 흐름입니다
 
-이 저장소에서는 실제 역할이 드러나도록 최종 제출 노트북을 `detection_tta_0.94402.ipynb`로 정리했습니다.
+최종 제출 흐름은 `final_score_0.94402.ipynb`에서 확인할 수 있습니다.
 
 ### 2. detector는 보조 모듈로 사용했습니다
 

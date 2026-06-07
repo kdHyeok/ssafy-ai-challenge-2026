@@ -9,7 +9,7 @@
 | `Baseline_0.70279.ipynb` | 초기 baseline | `Qwen/Qwen2.5-VL-3B-Instruct` 기반 4bit LoRA baseline. 데이터 로드부터 제출 CSV 생성까지 end-to-end 실행 |
 | `train_0.9333.ipynb` | 32B 학습 | `Qwen/Qwen3-VL-32B-Instruct` + Unsloth/LoRA 학습. 파일명 숫자와 별개로 실제 제출 점수는 0.93141 |
 | `ensemble_0.94363.ipynb` | soft ensemble | Qwen3-VL-32B와 Qwen3.5-27B를 결합해 a/b/c/d 확률을 가중 합산하는 실험 |
-| `detection_tta_0.94402.ipynb` | 최종 제출 파이프라인 | Grounding DINO, Florence-2, Qwen3-VL-32B, Qwen3.5-27B를 묶어 최종 제출에 사용한 추론 파이프라인 |
+| `final_score_0.94402.ipynb` | 최종 제출 파이프라인 | Grounding DINO, Florence-2, Qwen3-VL-32B, Qwen3.5-27B를 묶어 최종 제출에 사용한 추론 파이프라인 |
 | `experimental/EDA.ipynb` | EDA | 데이터 구조, 질문 유형, 응답 불일치, 개수/재질 문제를 먼저 확인한 탐색 노트북 |
 
 ## 관련 문서
@@ -49,7 +49,7 @@
 - dev에서 답변이 얼마나 자주 갈리는지 확인
 - 질문을 개수, 재질, 색상, 문자처럼 이해하기 쉬운 범주로 나눠 봄
 - 정답 분포와 보기 쏠림이 있는지 확인
-- 이미지 resize, padding, crop이 개수·재질 문제에 어떤 영향을 줄지 후속 실험 후보로 정리
+- 이미지 resize, padding, crop이 개수·재질 문제에 어떤 영향을 줄지 후속 실험 후보로 확인
 
 이 단계는 모델 변경과 병행했고, 이후 32B 학습, soft ensemble, detection/TTA 실험 순서를 정하는 기준으로 사용했습니다.
 
@@ -83,7 +83,7 @@
 
 ### 7. Detection / TTA 최종 제출
 
-관련 파일: `detection_tta_0.94402.ipynb`
+관련 파일: `final_score_0.94402.ipynb`
 
 - Grounding DINO와 Florence-2로 관심 객체 후보를 따로 찾음
 - 원본 이미지와 crop 이미지를 함께 넣어 추론
@@ -95,9 +95,9 @@
 
 - 여러 제출이 갈리는 샘플만 다시 푸는 selective Thinking 아이디어
 - 긴 로그를 텍스트 파일로 남긴 뒤 다시 파싱하는 구조
-- 저장 로그와 최종 answer 정리가 불안정해 공개 레포에서는 노트북을 제거함
+- 저장 로그와 최종 answer 생성이 불안정해 공개 레포에서는 노트북을 제거함
 - 자세한 내용은 `../docs/selective-thinking-failed-experiment.md` 참고
 
 ## 점수 해석
 
-노트북 파일명에 붙은 숫자와 실제 제출 점수가 항상 같지는 않습니다. 이 저장소에서는 제출에 실제로 사용한 흐름과 역할이 드러나도록 파일과 문서를 함께 정리했습니다.
+노트북 파일명에 붙은 숫자와 실제 제출 점수가 항상 같지는 않습니다. 이 저장소에서는 실제 제출 흐름과 노트북 역할이 드러나도록 파일명과 문서 구조를 맞췄습니다.
