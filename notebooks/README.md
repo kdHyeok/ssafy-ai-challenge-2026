@@ -7,7 +7,7 @@
 | 파일 | 역할 | 내용 |
 |---|---|---|
 | `Baseline_0.70279.ipynb` | 초기 baseline | `Qwen/Qwen2.5-VL-3B-Instruct` 기반 4bit LoRA baseline. 데이터 로드부터 제출 CSV 생성까지 end-to-end 실행 |
-| `train_0.9333.ipynb` | 32B 학습 | `Qwen/Qwen3-VL-32B-Instruct` + Unsloth/LoRA 학습. 파일명 숫자와 별개로 실제 제출 점수는 0.93141 |
+| `train_0.9333.ipynb` | 32B 학습 | `Qwen/Qwen3-VL-32B-Instruct` + Unsloth/LoRA 학습. 결과 0.93141 |
 | `ensemble_0.94363.ipynb` | soft ensemble | Qwen3-VL-32B와 Qwen3.5-27B를 결합해 a/b/c/d 확률을 가중 합산하는 실험 |
 | `final_score_0.94402.ipynb` | 최종 제출 파이프라인 | Grounding DINO, Florence-2, Qwen3-VL-32B, Qwen3.5-27B를 묶어 최종 제출에 사용한 추론 파이프라인 |
 | `experimental/EDA.ipynb` | EDA | 데이터 구조, 질문 유형, 응답 불일치, 개수/재질 문제를 먼저 확인한 탐색 노트북 |
@@ -69,7 +69,7 @@
 
 - 모델: `Qwen/Qwen3-VL-32B-Instruct`
 - 프레임워크: Unsloth, TRL SFTTrainer, PEFT LoRA
-- 실제 제출 점수: 0.93141
+- 결과: 0.93141
 - a/b/c/d별 softmax 확률 저장 구조 포함
 
 ### 6. Soft ensemble
@@ -95,9 +95,5 @@
 
 - 여러 제출이 갈리는 샘플만 다시 푸는 selective Thinking 아이디어
 - 긴 로그를 텍스트 파일로 남긴 뒤 다시 파싱하는 구조
-- 저장 로그와 최종 answer 생성이 불안정해 공개 레포에서는 노트북을 제거함
+- 저장 로그와 최종 answer 생성이 불안정해 최종 제출 흐름에는 포함하지 않음
 - 자세한 내용은 `../docs/selective-thinking-failed-experiment.md` 참고
-
-## 점수 해석
-
-노트북 파일명에 붙은 숫자와 실제 제출 점수가 항상 같지는 않습니다. 이 저장소에서는 실제 제출 흐름과 노트북 역할이 드러나도록 파일명과 문서 구조를 맞췄습니다.
