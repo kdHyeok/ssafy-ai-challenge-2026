@@ -3,70 +3,95 @@
   <defs>
     <style>
       .title{font:700 38px Arial,sans-serif;fill:#111827}
+      .subtitle{font:20px Arial,sans-serif;fill:#4b5563}
       .axis{stroke:#9ca3af;stroke-width:2}
       .grid{stroke:#e5e7eb;stroke-width:1}
-      .label{font:600 22px Arial,sans-serif;fill:#111827;text-anchor:middle}
-      .small{font:18px Arial,sans-serif;fill:#374151;text-anchor:middle}
-      .bartext{font:700 22px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .tick{font:18px Arial,sans-serif;fill:#6b7280;text-anchor:end}
+      .score{font:700 21px Arial,sans-serif;fill:#111827;text-anchor:middle;stroke:#ffffff;stroke-width:5;paint-order:stroke}
+      .label{font:600 19px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .small{font:17px Arial,sans-serif;fill:#4b5563;text-anchor:middle}
       .note{font:18px Arial,sans-serif;fill:#4b5563}
     </style>
+    <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="45%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
   </defs>
-  <text x="60" y="60" class="title">SSAFY AI Challenge VQA Score Progression</text>
-  <line x1="120" y1="600" x2="1380" y2="600" class="axis"/>
-  <line x1="120" y1="120" x2="120" y2="600" class="axis"/>
-  <line x1="120" y1="500" x2="1380" y2="500" class="grid"/><text x="82" y="507" class="note">0.75</text>
-  <line x1="120" y1="400" x2="1380" y2="400" class="grid"/><text x="82" y="407" class="note">0.80</text>
-  <line x1="120" y1="300" x2="1380" y2="300" class="grid"/><text x="82" y="307" class="note">0.85</text>
-  <line x1="120" y1="200" x2="1380" y2="200" class="grid"/><text x="82" y="207" class="note">0.90</text>
-  <line x1="120" y1="112" x2="1380" y2="112" class="grid"/><text x="82" y="119" class="note">0.944</text>
 
+  <text x="60" y="58" class="title">SSAFY AI Challenge VQA Score Progression</text>
+  <text x="60" y="90" class="subtitle">0.00–1.00 실제 점수 축으로 표시해 점수 차이를 과장하지 않았습니다.</text>
+
+  <!-- Chart frame -->
+  <line x1="130" y1="570" x2="1380" y2="570" class="axis"/>
+  <line x1="130" y1="125" x2="130" y2="570" class="axis"/>
+
+  <!-- Full 0.00-1.00 score axis prevents exaggerated height gaps. -->
+  <line x1="130" y1="570.0" x2="1380" y2="570.0" class="grid"/><text x="112" y="576.0" class="tick">0.00</text>
+  <line x1="130" y1="458.8" x2="1380" y2="458.8" class="grid"/><text x="112" y="464.8" class="tick">0.25</text>
+  <line x1="130" y1="347.5" x2="1380" y2="347.5" class="grid"/><text x="112" y="353.5" class="tick">0.50</text>
+  <line x1="130" y1="236.2" x2="1380" y2="236.2" class="grid"/><text x="112" y="242.2" class="tick">0.75</text>
+  <line x1="130" y1="125.0" x2="1380" y2="125.0" class="grid"/><text x="112" y="131.0" class="tick">1.00</text>
+  <line x1="130" y1="169.0" x2="1380" y2="169.0" class="grid" stroke-dasharray="6 6"/><text x="112" y="175.0" class="tick">0.90</text>
+
+  <!-- Progression line: verified submitted scores only. -->
+  <polyline points="180,257.3 380,221.4 580,201.5 780,197.8 980,155.5 1180,150.1 1320,149.9" fill="none" stroke="url(#lineGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Baseline -->
   <g>
-    <rect x="170" y="594" width="110" height="6" rx="4" fill="#9ca3af"/>
-    <text x="225" y="570" class="bartext">0.70279</text>
-    <text x="225" y="636" class="small">Baseline</text>
-    <text x="225" y="660" class="small">Qwen2.5 3B</text>
+    <circle cx="180" cy="257.3" r="12" fill="#60a5fa" stroke="#ffffff" stroke-width="4"/>
+    <text x="180" y="229.3" class="score">0.70279</text>
+    <text x="180" y="615" class="label">Baseline</text>
+    <text x="180" y="640" class="small">Qwen2.5 3B</text>
   </g>
+
+  <!-- MiniCPM -->
   <g>
-    <rect x="320" y="433" width="110" height="167" rx="4" fill="#60a5fa"/>
-    <text x="375" y="410" class="bartext">0.78341</text>
-    <text x="375" y="636" class="small">MiniCPM</text>
-    <text x="375" y="660" class="small">V-4_5</text>
+    <circle cx="380" cy="221.4" r="12" fill="#38bdf8" stroke="#ffffff" stroke-width="4"/>
+    <text x="380" y="193.4" class="score">0.78341</text>
+    <text x="380" y="615" class="label">MiniCPM</text>
+    <text x="380" y="640" class="small">V-4_5</text>
   </g>
+
+  <!-- Gemma 4 -->
   <g>
-    <rect x="470" y="344" width="110" height="256" rx="4" fill="#a78bfa"/>
-    <text x="525" y="322" class="bartext">0.82815</text>
-    <text x="525" y="636" class="small">Gemma 4</text>
-    <text x="525" y="660" class="small">E4B-it</text>
+    <circle cx="580" cy="201.5" r="12" fill="#a78bfa" stroke="#ffffff" stroke-width="4"/>
+    <text x="580" y="173.5" class="score">0.82815</text>
+    <text x="580" y="615" class="label">Gemma 4</text>
+    <text x="580" y="640" class="small">E4B-it</text>
   </g>
+
+  <!-- Qwen3-VL -->
   <g>
-    <rect x="620" y="328" width="110" height="272" rx="4" fill="#34d399"/>
-    <text x="675" y="306" class="bartext">0.83643</text>
-    <text x="675" y="636" class="small">Qwen3-VL</text>
-    <text x="675" y="660" class="small">8B</text>
+    <circle cx="780" cy="197.8" r="12" fill="#34d399" stroke="#ffffff" stroke-width="4"/>
+    <text x="780" y="169.8" class="score">0.83643</text>
+    <text x="780" y="615" class="label">Qwen3-VL</text>
+    <text x="780" y="640" class="small">8B</text>
   </g>
+
+  <!-- 32B LoRA -->
   <g>
-    <rect x="770" y="139" width="110" height="461" rx="4" fill="#f59e0b"/>
-    <text x="825" y="116" class="bartext">0.93141</text>
-    <text x="825" y="636" class="small">32B train</text>
-    <text x="825" y="660" class="small">file: 0.9333</text>
+    <circle cx="980" cy="155.5" r="12" fill="#f59e0b" stroke="#ffffff" stroke-width="4"/>
+    <text x="980" y="121.5" class="score">0.93141</text>
+    <text x="980" y="615" class="label">32B LoRA</text>
+    <text x="980" y="640" class="small">prob logging</text>
   </g>
+
+  <!-- Soft -->
   <g>
-    <rect x="920" y="115" width="110" height="485" rx="4" fill="#fb7185"/>
-    <text x="975" y="92" class="bartext">0.94363</text>
-    <text x="975" y="636" class="small">Soft</text>
-    <text x="975" y="660" class="small">ensemble</text>
+    <circle cx="1180" cy="150.1" r="12" fill="#fb7185" stroke="#ffffff" stroke-width="4"/>
+    <text x="1180" y="185.1" class="score">0.94363</text>
+    <text x="1180" y="615" class="label">Soft</text>
+    <text x="1180" y="640" class="small">ensemble</text>
   </g>
+
+  <!-- Detection/TTA -->
   <g>
-    <rect x="1070" y="112" width="110" height="488" rx="4" fill="#ef4444"/>
-    <text x="1125" y="89" class="bartext">0.94402</text>
-    <text x="1125" y="636" class="small">Detection / TTA</text>
-    <text x="1125" y="660" class="small">file: 0.93102</text>
+    <circle cx="1320" cy="149.9" r="14" fill="#ef4444" stroke="#111827" stroke-width="3"/>
+    <text x="1320" y="121.9" class="score">0.94402</text>
+    <text x="1320" y="615" class="label">Detection/TTA</text>
+    <text x="1320" y="640" class="small">final</text>
   </g>
-  <g>
-    <rect x="1220" y="588" width="110" height="12" rx="4" fill="#94a3b8"/>
-    <text x="1275" y="570" class="bartext">failed</text>
-    <text x="1275" y="636" class="small">score_0.94402</text>
-    <text x="1275" y="660" class="small">Thinking note</text>
-  </g>
-  <text x="60" y="700" class="note">train_0.9333.ipynb의 실제 제출 점수는 0.93141이며, 최종 제출 파이프라인은 final_score_0.94402.ipynb입니다.</text>
+
+  <text x="60" y="690" class="note">Score axis: 0.00–1.00. Final submission: 0.94402 with Detection/TTA pipeline.</text>
 </svg>
